@@ -1,0 +1,38 @@
+{
+  "name": "web",
+  "description": "Sample app that demonstrates the power of building UI components using Marko, Vite and Fastify",
+  "version": "1.0.0",
+  "dependencies": {
+    "@fastify/compress": "^6.2.0",
+    "@fastify/static": "^6.6.0",
+    "@marko-tags/context": "^2.2.2",
+    "@marko-tags/destroy-when-detached": "^0.1.4",
+    "@marko-tags/match-media": "^1.2.1",
+    "@marko-tags/portal": "^1.2.1",
+    "@marko-tags/subscribe": "^0.4.3",
+    "@marko/fastify": "^1.1.1",
+    "@marko/urql": "^2.1.2",
+    "fastify": "^4.11.0",
+    "marko": "^5.22.1"
+  },
+  "devDependencies": {
+    "@marko/compiler": "^5.23.1",
+    "@marko/testing-library": "^6.1.2",
+    "@marko/vite": "^2.3.11",
+    "cross-env": "^7.0.3",
+    "postcss-preset-env": "^7.8.3",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.2.4",
+    "vite": "^4.0.4"
+  },
+  "private": true,
+  "scripts": {
+    "build": "rimraf dist && npm run build:server && npm run build:client",
+    "build:client": "cross-env NODE_ENV=production vite build",
+    "build:server": "cross-env NODE_ENV=production vite build --ssr src/index.js",
+    "dev": "node --enable-source-maps index.js",
+    "dev:inspect": "node --inspect --enable-source-maps index.js",
+    "start": "cross-env NODE_ENV=production node --enable-source-maps index.js"
+  },
+  "type": "module"
+}
